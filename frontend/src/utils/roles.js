@@ -1,0 +1,6 @@
+export const ROLES = {
+  ADMIN: 'ADMIN',
+  HOSPITAL: 'HOSPITAL',
+  DONOR: 'DONOR',
+  BLOOD_REQUESTER: 'BLOOD_REQUESTER',
+};
