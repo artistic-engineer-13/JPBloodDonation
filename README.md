@@ -10,32 +10,18 @@ A role-based MERN blood donation application with Admin, Hospital, Donor, and Bl
   - Local MongoDB service, or
   - MongoDB Atlas connection string
 
-## 1) Clone and Install
+## 1) Clone
 
 ```bash
 git clone https://github.com/artistic-engineer-13/JPBloodDonation.git
 cd JPBloodDonation
-npm --prefix backend install
-npm --prefix frontend install
 ```
 
 ## 2) Environment Setup
 
-### Backend env
+Backend env is committed as backend/.env and frontend env is committed as frontend/.env.
 
-Create backend env file from template:
-
-```bash
-cp backend/.env.example backend/.env
-```
-
-For Windows PowerShell:
-
-```powershell
-Copy-Item backend/.env.example backend/.env
-```
-
-Then update backend/.env:
+If you need custom values, edit backend/.env:
 
 - `PORT=5001`
 - `CLIENT_URL=http://localhost:5174`
@@ -54,21 +40,7 @@ MongoDB Atlas:
 MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-url>/jp_blood_donation?retryWrites=true&w=majority&appName=Cluster0
 ```
 
-### Frontend env
-
-Create frontend env file from template:
-
-```bash
-cp frontend/.env.example frontend/.env
-```
-
-For Windows PowerShell:
-
-```powershell
-Copy-Item frontend/.env.example frontend/.env
-```
-
-Expected value:
+Frontend uses frontend/.env with this default value:
 
 ```env
 VITE_API_BASE_URL=http://localhost:5001/api
@@ -76,19 +48,13 @@ VITE_API_BASE_URL=http://localhost:5001/api
 
 ## 3) Run the App
 
-Open 2 terminals from project root:
-
-Terminal 1 (backend):
+Run this single command from project root:
 
 ```bash
-npm --prefix backend run dev
+npm run dev
 ```
 
-Terminal 2 (frontend):
-
-```bash
-npm --prefix frontend run dev
-```
+It automatically installs backend and frontend dependencies first (on first run), then starts both servers.
 
 Frontend usually starts on:
 
@@ -108,6 +74,7 @@ Expected JSON response includes `success: true`.
 - Check `backend/.env` has correct `MONGODB_URI`
 - For local MongoDB, ensure MongoDB service is running
 - For Atlas, verify username/password, IP allowlist, and cluster URI
+- If external DB is unavailable, backend falls back to in-memory MongoDB automatically (data resets on backend restart)
 
 2. `Route not found` or API not reachable
 - Ensure frontend `.env` points to `http://localhost:5001/api`

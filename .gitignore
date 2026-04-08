@@ -6,11 +6,7 @@
 **/coverage/
 
 # Environment files
-**/.env
-**/.env.local
-**/.env.development.local
-**/.env.test.local
-**/.env.production.local
+# Intentionally tracked in this repository per project requirement.
 
 # Logs
 npm-debug.log*
